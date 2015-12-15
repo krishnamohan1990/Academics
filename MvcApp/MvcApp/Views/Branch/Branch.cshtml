@@ -1,0 +1,32 @@
+﻿@model MvcApp.Models.Branch
+
+<div class="modal-body">
+	@using (@Html.BeginForm("Add", "Branch", FormMethod.Post, new {id = "branchForm"}))
+	{
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary()
+		<div>
+			@Html.HiddenFor(m => m.ID)
+			<div>
+				@Html.LabelFor(m => m.Name)
+			</div>
+			<div>
+				@Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
+			</div>
+		</div>
+		<div>
+			<div>
+				@Html.LabelFor(m => m.Description)
+			</div>
+			<div>
+				@Html.TextAreaFor(m => m.Description, new {@class = "form-control"})
+			</div>
+		</div>
+		<div>
+			<div>
+				@Html.CheckBoxFor(m => m.IsDefault)  <span>  Set As Default Branch?</span>
+			</div>
+		</div>
+		<br />
+	}
+</div>

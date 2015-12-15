@@ -1,0 +1,10 @@
+D:\KM\Practice\ServiceApplication\bin\ServiceApplication.dll
+D:\KM\Practice\ServiceApplication\bin\ServiceApplication.pdb
+D:\KM\Practice\ServiceApplication\bin\ServiceLibrary.dll
+D:\KM\Practice\ServiceApplication\bin\DataAccessLib.dll
+D:\KM\Practice\ServiceApplication\bin\ServiceLibrary.pdb
+D:\KM\Practice\ServiceApplication\bin\DataAccessLib.pdb
+D:\KM\Practice\ServiceApplication\obj\Debug\ServiceApplication.csprojResolveAssemblyReference.cache
+D:\KM\Practice\ServiceApplication\obj\Debug\ServiceApplication.dll
+D:\KM\Practice\ServiceApplication\obj\Debug\ServiceApplication.pdb
+D:\KM\Practice\ServiceApplication\bin\ServiceApplication.dll.config

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+@using (@Html.BeginForm("Add", "Home", FormMethod.Post))
+{
+    <input type="text" id="txt1" name="txt1"/>
+    <br/>
+    <input type="text" id="txt2" name="txt2"/>
+    <br/>
+    <input type="submit" name="Add" value="add"/>
+    <br/>
+    <input type="text" id="txt3" value="@ViewBag.Sum"/>
+    <br/>
+}

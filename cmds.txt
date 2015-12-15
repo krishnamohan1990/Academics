@@ -1,0 +1,51 @@
+svcutil /dconly -n:*,Academics.Services.ServiceContracts /target:code /serializer:auto /importXmlTypes AcademicsData.xsd /out:AcademicsServiceContracts.cs
+svcutil /dconly -n:*,Services.Contracts /target:code /serializer:auto /importXmlTypes ServiceContracts.xsd BaseTypes.xsd /out:ServiceContracts.cs --working
+
+ASpnet_regsql.exe -S localhost -U sa -P 123* -d MYDB -A mrp
+
+
+put this header in xsd generated from dll
+<xs:schema
+  elementFormDefault="qualified"
+  targetNamespace="www.siriacademics.edu/Academics"
+  xmlns:base="www.siriacademics.edu/Academics"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://microsoft.com/wsdl/types/" />
+
+Insert into Roles values('B114CEC2-8333-4FCA-BD61-DC09774DA24A','Administrator','admin','B114CEC2-8333-4FCA-BD61-DC09774DA24A',getdate(),null,0)
+
+
+USE [MYDB]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[UpdateBranch]
+@branchId uniqueidentifier,
+@branchName varchar(20),
+@description varchar(100) = null,
+@isDefault bit,
+@createdBy uniqueidentifier,
+@updatedOn datetime
+As
+BEGIN
+SET NOCOUNT ON
+if @isDefault = Cast('true' as bit)
+begin	
+	Update Branches SET IsDefault = Convert(bit,'false'), UpdatedOn = getdate() where CreatedBy = @createdBy and IsDEfault = @isDefault
+	Update Users SET BranchID = @branchId where UserID = @createdBy
+end
+UPDATE dbo.Branches 
+SET BranchName = @branchName,
+BranchDescription = @description,
+IsDefault = @isDefault,
+UpdatedOn = @updatedOn where BranchID = @branchId
+END
+
+
+CREATE PROCEDURE SelectBranch
+@branchId uniqueidentifier
+As BEGIN
+Select BranchID,BranchName,BranchDescription,IsDefault,CreatedBy,CreatedOn,UpdatedOn FROM Branches WHERE BranchID = @branchId
+END

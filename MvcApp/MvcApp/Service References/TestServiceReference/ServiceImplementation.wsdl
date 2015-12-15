@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceImplementation" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="ws_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:58839/TestService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:58839/TestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:58839/TestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Services.Contracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddUserRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddUserRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddYear" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateYear" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteYear" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCurrentYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentYear" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCurrentYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllAcademicYears_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAcademicYears" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllAcademicYears_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAcademicYearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllBranches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBranches" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllBranches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBranchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProgram" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProgram" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgram" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectProgramsByBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramsByBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectProgramsByBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramsByBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectProgramsByYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramsByYear" />
+  </wsdl:message>
+  <wsdl:message name="IService_SelectProgramsByYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramsByYearResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddUser" message="tns:IService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddUserResponse" message="tns:IService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserDetails" message="tns:IService_GetUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserDetailsResponse" message="tns:IService_GetUserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RegisterUser" message="tns:IService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RegisterUserResponse" message="tns:IService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddRole" message="tns:IService_AddRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddRoleResponse" message="tns:IService_AddRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddUserRole" message="tns:IService_AddUserRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddUserRoleResponse" message="tns:IService_AddUserRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddYear" message="tns:IService_AddYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddYearResponse" message="tns:IService_AddYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateYear" message="tns:IService_UpdateYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateYearResponse" message="tns:IService_UpdateYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteYear" message="tns:IService_DeleteYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteYearResponse" message="tns:IService_DeleteYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCurrentYear" message="tns:IService_GetCurrentYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCurrentYearResponse" message="tns:IService_GetCurrentYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAcademicYears">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllAcademicYears" message="tns:IService_GetAllAcademicYears_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllAcademicYearsResponse" message="tns:IService_GetAllAcademicYears_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBranch" message="tns:IService_AddBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddBranchResponse" message="tns:IService_AddBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteBranch" message="tns:IService_DeleteBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteBranchResponse" message="tns:IService_DeleteBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBranch" message="tns:IService_GetBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBranchResponse" message="tns:IService_GetBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBranches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllBranches" message="tns:IService_GetAllBranches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllBranchesResponse" message="tns:IService_GetAllBranches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertProgram" message="tns:IService_InsertProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertProgramResponse" message="tns:IService_InsertProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteProgram" message="tns:IService_DeleteProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteProgramResponse" message="tns:IService_DeleteProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectProgram" message="tns:IService_SelectProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectProgramResponse" message="tns:IService_SelectProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramsByBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectProgramsByBranch" message="tns:IService_SelectProgramsByBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectProgramsByBranchResponse" message="tns:IService_SelectProgramsByBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramsByYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectProgramsByYear" message="tns:IService_SelectProgramsByYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectProgramsByYearResponse" message="tns:IService_SelectProgramsByYear_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basic" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IService/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap:operation soapAction="http://tempuri.org/IService/AddRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserRole">
+      <soap:operation soapAction="http://tempuri.org/IService/AddUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddYear">
+      <soap:operation soapAction="http://tempuri.org/IService/AddYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYear">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteYear">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentYear">
+      <soap:operation soapAction="http://tempuri.org/IService/GetCurrentYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAcademicYears">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllAcademicYears" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/AddBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBranches">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllBranches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProgram">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProgram">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgram">
+      <soap:operation soapAction="http://tempuri.org/IService/SelectProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramsByBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/SelectProgramsByBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramsByYear">
+      <soap:operation soapAction="http://tempuri.org/IService/SelectProgramsByYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ws" type="tns:IService">
+    <wsp:PolicyReference URI="#ws_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddUser">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap12:operation soapAction="http://tempuri.org/IService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserRole">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddUserRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddYear">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYear">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteYear">
+      <soap12:operation soapAction="http://tempuri.org/IService/DeleteYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentYear">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetCurrentYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAcademicYears">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllAcademicYears" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBranch">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBranch">
+      <soap12:operation soapAction="http://tempuri.org/IService/DeleteBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBranches">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAllBranches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProgram">
+      <soap12:operation soapAction="http://tempuri.org/IService/InsertProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProgram">
+      <soap12:operation soapAction="http://tempuri.org/IService/DeleteProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgram">
+      <soap12:operation soapAction="http://tempuri.org/IService/SelectProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramsByBranch">
+      <soap12:operation soapAction="http://tempuri.org/IService/SelectProgramsByBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramsByYear">
+      <soap12:operation soapAction="http://tempuri.org/IService/SelectProgramsByYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceImplementation">
+    <wsdl:port name="basic" binding="tns:basic">
+      <soap:address location="http://localhost:58839/TestService.svc/basic" />
+    </wsdl:port>
+    <wsdl:port name="ws" binding="tns:ws">
+      <soap12:address location="http://localhost:58839/TestService.svc/ws" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:58839/TestService.svc/ws</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

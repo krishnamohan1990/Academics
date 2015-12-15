@@ -1,0 +1,36 @@
+﻿@using MvcApp.Controllers
+@model List<MvcApp.Models.AcademicYear>
+
+@{
+    ViewBag.Title = "ShowYears";
+}
+<table class="dataTable">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>FromDate</th>
+        <th>ToDate</th>
+        <th>Actions</th>
+    </tr>
+    </thead><tbody>
+    @foreach (var year in Model)
+    {
+        <tr>
+            <td>@year.Name</td>
+            <td>@year.FromDate.ToShortDateString()</td>
+            <td>@year.ToDate.ToShortDateString()</td>
+            <td>
+                
+                @if (!year.IsCurrentYear)
+				{
+					<span class="edit" style="cursor: pointer">Edit</span>
+                   @Ajax.ActionLink("Delete","Delete","AcademicYear",new {id=year.ID},new AjaxOptions
+                    {
+                        OnSuccess = "onDeleteSuccess",Confirm = "Are you sure want to delete?",HttpMethod = "POST",OnFailure = "onFail"
+                    })
+                }
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>

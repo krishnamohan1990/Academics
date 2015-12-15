@@ -1,0 +1,113 @@
+﻿@using System.Net.Mime
+@using System.Web.UI.WebControls
+@model MvcApp.Models.RegisterModel
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var qns = new List<SelectListItem>
+    {
+        new SelectListItem{Text="---select---",Value = string.Empty},
+        new SelectListItem {Text = "Who is your best friend?", Value = "Who is your best friend?"},
+        new SelectListItem {Text = "What is your favourite color?", Value = "What is your favourite color?"},
+        new SelectListItem {Text = "Who is favourite author?", Value = "Who is favourite author?"}
+    };
+}
+<div id="registration">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <div>
+          <label> Register Here</label>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.FirstName)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.FirstName)
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.LastName)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.LastName)
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.Gender)
+            </div>
+            <div>
+                @Html.RadioButtonFor(model => model.Gender, "Male")Male 
+                @Html.RadioButtonFor(model => model.Gender, "FeMale")FeMale
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model=>model.Phonenumber)
+            </div>
+            <div>
+                @Html.EditorFor(model=>model.Phonenumber)
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Email)
+            </div>
+        </div>
+         <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.Branch)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Branch)
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Password)
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.ConfirmPassword)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.ConfirmPassword)
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.PasswordQuestion)
+            </div>
+            <div>
+                @Html.DropDownListFor(model => model.PasswordQuestion, qns)
+            </div>
+        </div>
+        <div class="column2">
+            <div>
+                @Html.LabelFor(model => model.Answer)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Answer)
+            </div>
+        </div>
+       
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    }
+    <p>
+        @Html.ActionLink("Click Here To Login","Login","Account")
+    </p>
+</div>

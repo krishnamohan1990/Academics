@@ -1,0 +1,98 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<MvcApp.Models.Branch>
+@{
+	ViewBag.Title = "Branch";
+}
+@Styles.Render("~/Styles/TableStyles")
+@section scripts
+{
+	<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".modal-link").click(function(e) {
+				e.preventDefault();
+				BootstrapDialog.show({
+					title: 'Add Branch',
+					message: $("<div></div>").load($(this).attr("href")),
+					buttons: [
+						{
+							label: 'Cancel',
+							action: function(dialog) {
+								dialog.close();
+							}
+						},
+						{
+							label: 'Add',
+							action: function(dialog) {
+								var valid = true;
+								var name = $("input[id=Name]").removeClass("input-validation-error").val();
+								var desc = $("input[id=Description]").val();
+								if (name == null) {
+									valid = false;
+									$("input[id=Name]").addClass("input-validation-error");
+									alert("Name is required");
+								} else if (name == "") {
+									valid = false;
+									$("input[id=Name]").addClass("input-validation-error");
+									alert("Name is required");
+								} else if (!name.match(/^[a-zA-Z0-9_-\s]{3,30}$/)) {
+									valid = false;
+									$("input[id=Name]").addClass("input-validation-error");
+									alert("Name should be 3 to 30 characters.only a-z0-9_- are allowed.");
+								}
+								if (valid)
+									$("#branchForm").submit();
+							}
+						}
+					]
+				});
+			});
+		});
+		function onDeleteSuccess(obj) {
+			$("a[branch=delete]").each(function(item) {
+				var href = $(this).attr("href");
+				if(href.indexOf(obj.ID)>1)
+					$(this).closest("tr").remove();
+			});
+			BootstrapDialog.show({
+				message: "Branch Deleted Successfully"
+			});
+		}
+
+		function onFailure() {
+			BootstrapDialog.show({
+				message: "Oops...!Technical Error Occured"
+			});
+		}
+	</script>
+}
+	<h2>Existing Branches</h2>
+<div class="column2">
+	<br/>
+	@Html.ActionLink("Add New Branch", "Add", "Branch", null, new { @class = "modal-link btn btn-default" })
+	<br/>
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.Name</td>
+						<td>@item.Description</td>
+						<td>
+							&nbsp;&nbsp;@Html.ActionLink("Edit", "Add", new { id = item.ID }, new { @class = "modal-link btn btn-default" }) &nbsp;&nbsp;&nbsp;
+							@Ajax.ActionLink("Delete", "Delete", "Branch", new { id = item.ID,name = item.Name }, new AjaxOptions { OnSuccess = "onDeleteSuccess", Confirm = "Are you sure want to delete?",HttpMethod = "POST",OnFailure = "onFailure" }, new { @class = "btn btn-default",@branch="delete" })
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

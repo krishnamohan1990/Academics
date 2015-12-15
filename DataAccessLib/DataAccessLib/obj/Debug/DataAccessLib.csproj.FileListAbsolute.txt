@@ -1,0 +1,5 @@
+D:\KM\Practice\DataAccessLib\DataAccessLib\bin\Debug\DataAccessLib.dll
+D:\KM\Practice\DataAccessLib\DataAccessLib\bin\Debug\DataAccessLib.pdb
+D:\KM\Practice\DataAccessLib\DataAccessLib\obj\Debug\DataAccessLib.csprojResolveAssemblyReference.cache
+D:\KM\Practice\DataAccessLib\DataAccessLib\obj\Debug\DataAccessLib.dll
+D:\KM\Practice\DataAccessLib\DataAccessLib\obj\Debug\DataAccessLib.pdb

@@ -1,0 +1,8 @@
+D:\KM\Practice\ServiceLibrary\bin\Debug\ServiceLibrary.dll.config
+D:\KM\Practice\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+D:\KM\Practice\ServiceLibrary\bin\Debug\ServiceLibrary.pdb
+D:\KM\Practice\ServiceLibrary\bin\Debug\DataAccessLib.dll
+D:\KM\Practice\ServiceLibrary\bin\Debug\DataAccessLib.pdb
+D:\KM\Practice\ServiceLibrary\obj\Debug\ServiceLibrary.csprojResolveAssemblyReference.cache
+D:\KM\Practice\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+D:\KM\Practice\ServiceLibrary\obj\Debug\ServiceLibrary.pdb

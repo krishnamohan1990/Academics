@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/Styles/menu")
+        @Styles.Render("~/Styles/bootstrap")
+        @Scripts.Render("~/bundles/modernizr")
+        @Styles.Render("~/Styles/Layout")
+        @Scripts.Render("~/bundles/jquery")
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="mainheader"></div>
+            <div id="cssmenu">
+                <ul>
+                    <li>
+	                    <a href="#"><span>Home</span></a>
+                    </li>
+                    <li>
+	                    <a href="#"><span>AboutUs</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>ContactUs</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+                @RenderBody()
+            </div>
+            <div class="footer">
+                <span>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</span>
+            </div>
+        </div>
+    </body>
+   
+</html>

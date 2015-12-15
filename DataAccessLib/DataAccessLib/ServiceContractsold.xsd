@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ServiceContracts"
+    targetNamespace="http://tempuri.org/ServiceContracts.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/ServiceContracts.xsd"
+    xmlns:mstns="http://tempuri.org/ServiceContracts.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:q1="http://tempuri.org/BaseTypes.xsd">
+  <xs:import namespace="http://tempuri.org/BaseTypes.xsd"></xs:import>
+  <xs:complexType name="Branch">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BranchID" type="q1:guid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BranchName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CreatedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="UserID" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Gender" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Email" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Password" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BranchID" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RoleID" type="q1:guid"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CreatedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Role">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RoleID" type="q1:guid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RoleName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CreatedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AcademicYear">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AcademicYearID" type="q1:guid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FromDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ToDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsCurrentYear" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BranchID" type="q1:guid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CreatedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Program">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProgramID" type="q1:guid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProgramName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BranchID" type="q1:guid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CreatedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Section">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="SectionID" type="q1:guid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SectionName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="q1:guid" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CreatedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

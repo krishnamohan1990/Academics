@@ -1,0 +1,1 @@
+svcutil.exe /dconly -n:*,Services.Contracts /target:code /serializer:auto /importXmlTypes ServiceContracts.xsd BaseTypes.xsd /out:ServiceContracts.cs
