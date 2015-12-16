@@ -91,5 +91,40 @@ namespace MvcApp.Helpers
 			}
 			return years;
 		}
+
+		public static void AddProgram(Program program)
+		{
+			var p = new program
+			{
+				ProgramID = program.ID.Value,
+				ProgramName = program.Name,
+				Description = program.Description,
+				BranchID = UserData.GetInstance.BranchID,
+				CreatedBy = UserData.GetInstance.AdminID,
+				CreatedOn = CommonHelper.CurrentDate
+			};
+			using (var client = new ServiceClient())
+			{
+				client.AddProgram(p);
+			}
+		}
+
+		public static Program GetProgam(Guid programId)
+		{
+			program p;
+			using (var client = new ServiceClient())
+			{
+				p = client.GetProgram(programId);
+			}
+			if (p != null)
+			{
+				return new Program
+				{
+					ID = p.ProgramID,
+					Name = p.ProgramName,
+					Description = p.Description,
+				};
+			}
+		}
 	}
 }

@@ -181,14 +181,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InsertProgram">
+  <xs:element name="AddProgram">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Services.Contracts" minOccurs="0" name="program" nillable="true" type="q18:program" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InsertProgramResponse">
+  <xs:element name="AddProgramResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -205,45 +205,45 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="SelectProgram">
+  <xs:element name="GetProgram">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="programId" type="q20:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SelectProgramResponse">
+  <xs:element name="GetProgramResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Services.Contracts" minOccurs="0" name="SelectProgramResult" nillable="true" type="q21:program" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Services.Contracts" minOccurs="0" name="GetProgramResult" nillable="true" type="q21:program" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SelectProgramsByBranch">
+  <xs:element name="GetProgramsByBranch">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="branchId" type="q22:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SelectProgramsByBranchResponse">
+  <xs:element name="GetProgramsByBranchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Services.Contracts" minOccurs="0" name="SelectProgramsByBranchResult" nillable="true" type="q23:ArrayOfprogram" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Services.Contracts" minOccurs="0" name="GetProgramsByBranchResult" nillable="true" type="q23:ArrayOfprogram" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SelectProgramsByYear">
+  <xs:element name="GetProgramsByYear">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="yearId" type="q24:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SelectProgramsByYearResponse">
+  <xs:element name="GetProgramsByYearResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Services.Contracts" minOccurs="0" name="SelectProgramsByYearResult" nillable="true" type="q25:ArrayOfprogram" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Services.Contracts" minOccurs="0" name="GetProgramsByYearResult" nillable="true" type="q25:ArrayOfprogram" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

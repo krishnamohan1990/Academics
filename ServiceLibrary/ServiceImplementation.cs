@@ -83,7 +83,7 @@ namespace ServiceLibrary
 			return BranchDA.Instance.SelectAll(userID);
 		}
 
-		public void InsertProgram(Program program)
+		public void AddProgram(Program program)
 		{
 			ProgramDA.Instance.InsertORUpdate(program);
 		}
@@ -93,17 +93,17 @@ namespace ServiceLibrary
 			ProgramDA.Instance.Delete(program);
 		}
 
-		public Program SelectProgram(Guid programId)
+		public Program GetProgram(Guid programId)
 		{
 			return ProgramDA.Instance.Select(programId);
 		}
 
-		public IEnumerable<Program> SelectProgramsByBranch(Guid branchId)
+		public IEnumerable<Program> GetProgramsByBranch(Guid branchId)
 		{
 			return ProgramDA.Instance.SelectByBranchID(branchId);
 		}
 
-		public IEnumerable<Program> SelectProgramsByYear(Guid yearId)
+		public IEnumerable<Program> GetProgramsByYear(Guid yearId)
 		{
 			return ProgramDA.Instance.SelectByYearID(yearId);
 		}

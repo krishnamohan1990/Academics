@@ -854,11 +854,11 @@ namespace MvcApp.TestServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllBranches", ReplyAction="http://tempuri.org/IService/GetAllBranchesResponse")]
         System.Threading.Tasks.Task<MvcApp.TestServiceReference.branch[]> GetAllBranchesAsync(System.Guid userID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertProgram", ReplyAction="http://tempuri.org/IService/InsertProgramResponse")]
-        void InsertProgram(MvcApp.TestServiceReference.program program);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddProgram", ReplyAction="http://tempuri.org/IService/AddProgramResponse")]
+        void AddProgram(MvcApp.TestServiceReference.program program);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertProgram", ReplyAction="http://tempuri.org/IService/InsertProgramResponse")]
-        System.Threading.Tasks.Task InsertProgramAsync(MvcApp.TestServiceReference.program program);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddProgram", ReplyAction="http://tempuri.org/IService/AddProgramResponse")]
+        System.Threading.Tasks.Task AddProgramAsync(MvcApp.TestServiceReference.program program);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteProgram", ReplyAction="http://tempuri.org/IService/DeleteProgramResponse")]
         void DeleteProgram(MvcApp.TestServiceReference.program program);
@@ -866,23 +866,23 @@ namespace MvcApp.TestServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteProgram", ReplyAction="http://tempuri.org/IService/DeleteProgramResponse")]
         System.Threading.Tasks.Task DeleteProgramAsync(MvcApp.TestServiceReference.program program);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectProgram", ReplyAction="http://tempuri.org/IService/SelectProgramResponse")]
-        MvcApp.TestServiceReference.program SelectProgram(System.Guid programId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetProgram", ReplyAction="http://tempuri.org/IService/GetProgramResponse")]
+        MvcApp.TestServiceReference.program GetProgram(System.Guid programId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectProgram", ReplyAction="http://tempuri.org/IService/SelectProgramResponse")]
-        System.Threading.Tasks.Task<MvcApp.TestServiceReference.program> SelectProgramAsync(System.Guid programId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetProgram", ReplyAction="http://tempuri.org/IService/GetProgramResponse")]
+        System.Threading.Tasks.Task<MvcApp.TestServiceReference.program> GetProgramAsync(System.Guid programId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectProgramsByBranch", ReplyAction="http://tempuri.org/IService/SelectProgramsByBranchResponse")]
-        MvcApp.TestServiceReference.program[] SelectProgramsByBranch(System.Guid branchId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetProgramsByBranch", ReplyAction="http://tempuri.org/IService/GetProgramsByBranchResponse")]
+        MvcApp.TestServiceReference.program[] GetProgramsByBranch(System.Guid branchId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectProgramsByBranch", ReplyAction="http://tempuri.org/IService/SelectProgramsByBranchResponse")]
-        System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> SelectProgramsByBranchAsync(System.Guid branchId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetProgramsByBranch", ReplyAction="http://tempuri.org/IService/GetProgramsByBranchResponse")]
+        System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> GetProgramsByBranchAsync(System.Guid branchId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectProgramsByYear", ReplyAction="http://tempuri.org/IService/SelectProgramsByYearResponse")]
-        MvcApp.TestServiceReference.program[] SelectProgramsByYear(System.Guid yearId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetProgramsByYear", ReplyAction="http://tempuri.org/IService/GetProgramsByYearResponse")]
+        MvcApp.TestServiceReference.program[] GetProgramsByYear(System.Guid yearId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SelectProgramsByYear", ReplyAction="http://tempuri.org/IService/SelectProgramsByYearResponse")]
-        System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> SelectProgramsByYearAsync(System.Guid yearId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetProgramsByYear", ReplyAction="http://tempuri.org/IService/GetProgramsByYearResponse")]
+        System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> GetProgramsByYearAsync(System.Guid yearId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1024,12 +1024,12 @@ namespace MvcApp.TestServiceReference {
             return base.Channel.GetAllBranchesAsync(userID);
         }
         
-        public void InsertProgram(MvcApp.TestServiceReference.program program) {
-            base.Channel.InsertProgram(program);
+        public void AddProgram(MvcApp.TestServiceReference.program program) {
+            base.Channel.AddProgram(program);
         }
         
-        public System.Threading.Tasks.Task InsertProgramAsync(MvcApp.TestServiceReference.program program) {
-            return base.Channel.InsertProgramAsync(program);
+        public System.Threading.Tasks.Task AddProgramAsync(MvcApp.TestServiceReference.program program) {
+            return base.Channel.AddProgramAsync(program);
         }
         
         public void DeleteProgram(MvcApp.TestServiceReference.program program) {
@@ -1040,28 +1040,28 @@ namespace MvcApp.TestServiceReference {
             return base.Channel.DeleteProgramAsync(program);
         }
         
-        public MvcApp.TestServiceReference.program SelectProgram(System.Guid programId) {
-            return base.Channel.SelectProgram(programId);
+        public MvcApp.TestServiceReference.program GetProgram(System.Guid programId) {
+            return base.Channel.GetProgram(programId);
         }
         
-        public System.Threading.Tasks.Task<MvcApp.TestServiceReference.program> SelectProgramAsync(System.Guid programId) {
-            return base.Channel.SelectProgramAsync(programId);
+        public System.Threading.Tasks.Task<MvcApp.TestServiceReference.program> GetProgramAsync(System.Guid programId) {
+            return base.Channel.GetProgramAsync(programId);
         }
         
-        public MvcApp.TestServiceReference.program[] SelectProgramsByBranch(System.Guid branchId) {
-            return base.Channel.SelectProgramsByBranch(branchId);
+        public MvcApp.TestServiceReference.program[] GetProgramsByBranch(System.Guid branchId) {
+            return base.Channel.GetProgramsByBranch(branchId);
         }
         
-        public System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> SelectProgramsByBranchAsync(System.Guid branchId) {
-            return base.Channel.SelectProgramsByBranchAsync(branchId);
+        public System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> GetProgramsByBranchAsync(System.Guid branchId) {
+            return base.Channel.GetProgramsByBranchAsync(branchId);
         }
         
-        public MvcApp.TestServiceReference.program[] SelectProgramsByYear(System.Guid yearId) {
-            return base.Channel.SelectProgramsByYear(yearId);
+        public MvcApp.TestServiceReference.program[] GetProgramsByYear(System.Guid yearId) {
+            return base.Channel.GetProgramsByYear(yearId);
         }
         
-        public System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> SelectProgramsByYearAsync(System.Guid yearId) {
-            return base.Channel.SelectProgramsByYearAsync(yearId);
+        public System.Threading.Tasks.Task<MvcApp.TestServiceReference.program[]> GetProgramsByYearAsync(System.Guid yearId) {
+            return base.Channel.GetProgramsByYearAsync(yearId);
         }
     }
 }

@@ -191,6 +191,7 @@
     <Compile Include="Helpers\CommonHelper.cs" />
     <Compile Include="Components\ServiceClient.cs" />
     <Compile Include="Helpers\BranchHelper.cs" />
+    <Compile Include="Helpers\ProgramHelper.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Helpers\YearProgramHelper.cs" />
     <Compile Include="Models\AcademicsModels.cs" />
@@ -475,6 +476,7 @@
     <Content Include="Styles\themes\base\Style.less" />
     <Content Include="Views\Branch\Branches.cshtml" />
     <Content Include="Views\Branch\Branch.cshtml" />
+    <Content Include="Views\Program\Program.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

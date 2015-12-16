@@ -98,11 +98,11 @@
   <wsdl:message name="IService_GetAllBranches_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBranchesResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_InsertProgram_InputMessage">
-    <wsdl:part name="parameters" element="tns:InsertProgram" />
+  <wsdl:message name="IService_AddProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProgram" />
   </wsdl:message>
-  <wsdl:message name="IService_InsertProgram_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InsertProgramResponse" />
+  <wsdl:message name="IService_AddProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProgramResponse" />
   </wsdl:message>
   <wsdl:message name="IService_DeleteProgram_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProgram" />
@@ -110,23 +110,23 @@
   <wsdl:message name="IService_DeleteProgram_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProgramResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_SelectProgram_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectProgram" />
+  <wsdl:message name="IService_GetProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgram" />
   </wsdl:message>
-  <wsdl:message name="IService_SelectProgram_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectProgramResponse" />
+  <wsdl:message name="IService_GetProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_SelectProgramsByBranch_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectProgramsByBranch" />
+  <wsdl:message name="IService_GetProgramsByBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsByBranch" />
   </wsdl:message>
-  <wsdl:message name="IService_SelectProgramsByBranch_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectProgramsByBranchResponse" />
+  <wsdl:message name="IService_GetProgramsByBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsByBranchResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_SelectProgramsByYear_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectProgramsByYear" />
+  <wsdl:message name="IService_GetProgramsByYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsByYear" />
   </wsdl:message>
-  <wsdl:message name="IService_SelectProgramsByYear_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectProgramsByYearResponse" />
+  <wsdl:message name="IService_GetProgramsByYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsByYearResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="AddUser">
@@ -185,25 +185,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllBranches" message="tns:IService_GetAllBranches_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllBranchesResponse" message="tns:IService_GetAllBranches_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="InsertProgram">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertProgram" message="tns:IService_InsertProgram_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertProgramResponse" message="tns:IService_InsertProgram_OutputMessage" />
+    <wsdl:operation name="AddProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddProgram" message="tns:IService_AddProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddProgramResponse" message="tns:IService_AddProgram_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteProgram">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteProgram" message="tns:IService_DeleteProgram_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteProgramResponse" message="tns:IService_DeleteProgram_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SelectProgram">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectProgram" message="tns:IService_SelectProgram_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectProgramResponse" message="tns:IService_SelectProgram_OutputMessage" />
+    <wsdl:operation name="GetProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProgram" message="tns:IService_GetProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProgramResponse" message="tns:IService_GetProgram_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SelectProgramsByBranch">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectProgramsByBranch" message="tns:IService_SelectProgramsByBranch_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectProgramsByBranchResponse" message="tns:IService_SelectProgramsByBranch_OutputMessage" />
+    <wsdl:operation name="GetProgramsByBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProgramsByBranch" message="tns:IService_GetProgramsByBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProgramsByBranchResponse" message="tns:IService_GetProgramsByBranch_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SelectProgramsByYear">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/SelectProgramsByYear" message="tns:IService_SelectProgramsByYear_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/SelectProgramsByYearResponse" message="tns:IService_SelectProgramsByYear_OutputMessage" />
+    <wsdl:operation name="GetProgramsByYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProgramsByYear" message="tns:IService_GetProgramsByYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProgramsByYearResponse" message="tns:IService_GetProgramsByYear_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="basic" type="tns:IService">
@@ -334,8 +334,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="InsertProgram">
-      <soap:operation soapAction="http://tempuri.org/IService/InsertProgram" style="document" />
+    <wsdl:operation name="AddProgram">
+      <soap:operation soapAction="http://tempuri.org/IService/AddProgram" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -352,8 +352,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectProgram">
-      <soap:operation soapAction="http://tempuri.org/IService/SelectProgram" style="document" />
+    <wsdl:operation name="GetProgram">
+      <soap:operation soapAction="http://tempuri.org/IService/GetProgram" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -361,8 +361,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectProgramsByBranch">
-      <soap:operation soapAction="http://tempuri.org/IService/SelectProgramsByBranch" style="document" />
+    <wsdl:operation name="GetProgramsByBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/GetProgramsByBranch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -370,8 +370,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectProgramsByYear">
-      <soap:operation soapAction="http://tempuri.org/IService/SelectProgramsByYear" style="document" />
+    <wsdl:operation name="GetProgramsByYear">
+      <soap:operation soapAction="http://tempuri.org/IService/GetProgramsByYear" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -509,8 +509,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="InsertProgram">
-      <soap12:operation soapAction="http://tempuri.org/IService/InsertProgram" style="document" />
+    <wsdl:operation name="AddProgram">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddProgram" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -527,8 +527,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectProgram">
-      <soap12:operation soapAction="http://tempuri.org/IService/SelectProgram" style="document" />
+    <wsdl:operation name="GetProgram">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetProgram" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -536,8 +536,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectProgramsByBranch">
-      <soap12:operation soapAction="http://tempuri.org/IService/SelectProgramsByBranch" style="document" />
+    <wsdl:operation name="GetProgramsByBranch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetProgramsByBranch" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -545,8 +545,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectProgramsByYear">
-      <soap12:operation soapAction="http://tempuri.org/IService/SelectProgramsByYear" style="document" />
+    <wsdl:operation name="GetProgramsByYear">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetProgramsByYear" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

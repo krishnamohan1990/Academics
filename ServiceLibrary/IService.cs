@@ -60,18 +60,18 @@ namespace ServiceLibrary
 		IEnumerable<Branch> GetAllBranches(Guid userID);
 
 		[OperationContract]
-		void InsertProgram(Program program);
+		void AddProgram(Program program);
 
 		[OperationContract]
 		void DeleteProgram(Program program);
 
 		[OperationContract]
-		Program SelectProgram(Guid programId);
+		Program GetProgram(Guid programId);
 
 		[OperationContract]
-		IEnumerable<Program> SelectProgramsByBranch(Guid branchId);
+		IEnumerable<Program> GetProgramsByBranch(Guid branchId);
 		
 		[OperationContract]
-		IEnumerable<Program> SelectProgramsByYear(Guid yearId);
+		IEnumerable<Program> GetProgramsByYear(Guid yearId);
 	}
 }
