@@ -12,6 +12,7 @@ namespace DataAccessLib.Interfaces
 		void InsertYear(AcademicYear year);
 		void UpdateYear(AcademicYear year);
 		void Delete(AcademicYear year);
-		List<AcademicYear> GetAcademicYears(Guid branchId, bool currentYearonly);
+		List<AcademicYear> SelectAcademicYearsByBranchID(Guid branchId);
+		List<AcademicYear> SelectAcademicYearsByUserID(Guid userId);
 	}
 }

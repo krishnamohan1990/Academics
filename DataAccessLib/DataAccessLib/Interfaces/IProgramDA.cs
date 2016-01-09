@@ -9,10 +9,13 @@ namespace DataAccessLib.Interfaces
 {
 	public interface IProgramDA:IDataAccess
 	{
-		void InsertORUpdate(Program program);
+		void Insert(Program program);
+		void Update(Program program);
 		void Delete(Program program);
 		Program Select(Guid programId);
 		IEnumerable<Program> SelectByBranchID(Guid branchId);
 		IEnumerable<Program> SelectByYearID(Guid yearID);
+		IEnumerable<Program> SelectByAdminID(Guid adminID);
+		IEnumerable<Program> SelectByBranchAndYearID(Guid branchID,Guid yearID);
 	}
 }

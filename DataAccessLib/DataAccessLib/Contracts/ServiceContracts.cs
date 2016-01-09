@@ -108,10 +108,7 @@ namespace Services.Contracts
 
 		[DataMember]
 		public bool IsCurrentYear { get; set; }
-
-		[DataMember]
-		public Guid BranchID { get; set; }
-
+		
 		[DataMember]
 		public Guid CreatedBy { get; set; }
 
@@ -130,10 +127,7 @@ namespace Services.Contracts
 
 		[DataMember]
 		public string Description { get; set; }
-
-		[DataMember]
-		public Guid BranchID { get; set; }
-
+		
 		[DataMember]
 		public Guid CreatedBy { get; set; }
 
@@ -158,5 +152,12 @@ namespace Services.Contracts
 
 		[DataMember]
 		public DateTime CreatedOn { get; set; }
+	}
+
+	[DataContract]
+	public class Error
+	{
+		public string Message { get; set; }
+		public string Reason { get; set; }
 	}
 }

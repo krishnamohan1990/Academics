@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using DataAccessLib.Exceptions;
 using DataAccessLib.Helpers;
 using Services.Contracts;
 using DataAccessLib.Interfaces;
@@ -19,19 +20,35 @@ namespace DataAccessLib.DataAccess
 		}
 		#endregion
 
-		public void InsertORUpdate(Program program)
+		public void Insert(Program program)
 		{
-			try
-			{
+			bool success;
 				using (var con = DAHelper.SqlConnection)
 				using (var cmd = DAHelper.Command("InsertProgram", con))
 				{
 					cmd.Parameters.AddWithValue("@programId", program.ProgramID);
 					cmd.Parameters.AddWithValue("@programName", program.ProgramName);
 					cmd.Parameters.AddWithValue("@description", program.Description);
-					cmd.Parameters.AddWithValue("@branchId", program.BranchID);
 					cmd.Parameters.AddWithValue("@createdOn", program.CreatedOn);
 					cmd.Parameters.AddWithValue("@createdBy", program.CreatedBy);
+					con.Open();
+					success = cmd.ExecuteNonQuery()>0;
+				}
+				if(!success)
+					throw new Exception("Progam not added sucessfully");
+		}
+
+		public void Update(Program program)
+		{
+			try
+			{
+				using (var con = DAHelper.SqlConnection)
+				using (var cmd = DAHelper.Command("UpdateProgram", con))
+				{
+					cmd.Parameters.AddWithValue("@programId", program.ProgramID);
+					cmd.Parameters.AddWithValue("@programName", program.ProgramName);
+					cmd.Parameters.AddWithValue("@description", program.Description);
+					cmd.Parameters.AddWithValue("@updatedOn", program.CreatedOn);
 					con.Open();
 					cmd.ExecuteNonQuery();
 				}
@@ -90,7 +107,7 @@ namespace DataAccessLib.DataAccess
 			{
 				IList<Program> program = new List<Program>();
 				using (var con = DAHelper.SqlConnection)
-				using (var cmd = DAHelper.Command("SelectProgramByBranch", con))
+				using (var cmd = DAHelper.Command("SelectProgramsByBranchID", con))
 				{
 					cmd.Parameters.AddWithValue("@branchId", branchId);
 					con.Open();
@@ -114,8 +131,58 @@ namespace DataAccessLib.DataAccess
 			{
 				IList<Program> program = new List<Program>();
 				using (var con = DAHelper.SqlConnection)
-				using (var cmd = DAHelper.Command("SelectProgramByYear", con))
+				using (var cmd = DAHelper.Command("SelectProgramsByYearID", con))
 				{
+					cmd.Parameters.AddWithValue("@yearId", yearId);
+					con.Open();
+					var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						program.Add(CreateFromReader(dr));
+					}
+				}
+				return program;
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+
+
+		public IEnumerable<Program> SelectByAdminID(Guid userId)
+		{
+			try
+			{
+				IList<Program> program = new List<Program>();
+				using (var con = DAHelper.SqlConnection)
+				using (var cmd = DAHelper.Command("SelectProgramsByAdminID", con))
+				{
+					cmd.Parameters.AddWithValue("@userId",userId);
+					con.Open();
+					var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						program.Add(CreateFromReader(dr));
+					}
+				}
+				return program;
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+
+		public IEnumerable<Program> SelectByBranchAndYearID(Guid branchId, Guid yearId)
+		{
+			try
+			{
+				IList<Program> program = new List<Program>();
+				using (var con = DAHelper.SqlConnection)
+				using (var cmd = DAHelper.Command("SelectProgramsByBranchAndYearID", con))
+				{
+					cmd.Parameters.AddWithValue("@branchId", yearId);
 					cmd.Parameters.AddWithValue("@yearId", yearId);
 					con.Open();
 					var dr = cmd.ExecuteReader();
@@ -139,7 +206,6 @@ namespace DataAccessLib.DataAccess
 				ProgramID = new Guid(dr["ProgramID"].ToString()),
 				ProgramName = dr["ProgramName"].ToString(),
 				Description = dr["Description"].ToString(),
-				BranchID = new Guid(dr["BranchID"].ToString()),
 				CreatedBy = new Guid(dr["CreatedBy"].ToString()),
 				CreatedOn = Convert.ToDateTime(dr["CreatedOn"]),
 				UpdatedOn = dr["UpdatedOn"] == null ? DateTime.MaxValue: Convert.ToDateTime(dr["UpdatedOn"])

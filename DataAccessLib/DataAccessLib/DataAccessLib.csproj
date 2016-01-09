@@ -49,6 +49,7 @@
     <Compile Include="DataAccess\BranchDA.cs" />
     <Compile Include="DataAccess\ProgramDA.cs" />
     <Compile Include="DataAccess\UserDA.cs" />
+    <Compile Include="Exceptions\ServiceException.cs" />
     <Compile Include="Helpers\DAHelper.cs" />
     <Compile Include="Interfaces\IAcademicYearDA.cs" />
     <Compile Include="Interfaces\IBranchDA.cs" />

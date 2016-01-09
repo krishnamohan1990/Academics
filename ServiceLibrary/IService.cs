@@ -45,7 +45,11 @@ namespace ServiceLibrary
 		AcademicYear GetCurrentYear(Guid branchId);
 
 		[OperationContract]
-		List<AcademicYear> GetAllAcademicYears(Guid branchId);
+		List<AcademicYear> GetAcademicYearsByBranch(Guid branchId);
+
+
+		[OperationContract]
+		List<AcademicYear> GetAcademicYearsByUser(Guid userId);
 
 		[OperationContract]
 		void AddBranch(Branch branch);
@@ -60,18 +64,36 @@ namespace ServiceLibrary
 		IEnumerable<Branch> GetAllBranches(Guid userID);
 
 		[OperationContract]
+		[FaultContract(typeof(Error))]
 		void AddProgram(Program program);
 
 		[OperationContract]
+		[FaultContract(typeof(Error))]
+		void UpdateProgram(Program program);
+
+		[OperationContract]
+		[FaultContract(typeof(Error))]
 		void DeleteProgram(Program program);
 
 		[OperationContract]
+		[FaultContract(typeof(Error))]
 		Program GetProgram(Guid programId);
 
 		[OperationContract]
+		[FaultContract(typeof(Error))]
 		IEnumerable<Program> GetProgramsByBranch(Guid branchId);
+
+		[OperationContract]
+		[FaultContract(typeof(Error))]
+		IEnumerable<Program> GetProgramsByYear(Guid yearId);
 		
 		[OperationContract]
-		IEnumerable<Program> GetProgramsByYear(Guid yearId);
+		[WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped)]
+		[FaultContract(typeof(Error))]
+		IEnumerable<Program> GetProgramsByBranchAndYear(Guid branchId, Guid yearId);
+
+		[OperationContract]
+		[FaultContract(typeof(Error))]
+		IEnumerable<Program> GetProgramsByAdminID(Guid adminId);
 	}
 }

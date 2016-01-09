@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Services.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58839/TestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="user">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BranchID" type="ser:guid" />
+      <xs:element minOccurs="0" name="BranchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="user" nillable="true" type="tns:user" />
+  <xs:complexType name="role">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="role" nillable="true" type="tns:role" />
+  <xs:complexType name="academicYear">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcademicYearID" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsCurrentYear" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="academicYear" nillable="true" type="tns:academicYear" />
+  <xs:complexType name="ArrayOfacademicYear">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="academicYear" nillable="true" type="tns:academicYear" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfacademicYear" nillable="true" type="tns:ArrayOfacademicYear" />
+  <xs:complexType name="branch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BranchID" type="ser:guid" />
+      <xs:element minOccurs="0" name="BranchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="branch" nillable="true" type="tns:branch" />
+  <xs:complexType name="ArrayOfbranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="branch" nillable="true" type="tns:branch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfbranch" nillable="true" type="tns:ArrayOfbranch" />
+  <xs:complexType name="program">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="program" nillable="true" type="tns:program" />
+  <xs:complexType name="Error">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Error" nillable="true" type="tns:Error" />
+  <xs:complexType name="ArrayOfprogram">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="program" nillable="true" type="tns:program" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfprogram" nillable="true" type="tns:ArrayOfprogram" />
+</xs:schema>

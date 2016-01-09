@@ -38,7 +38,6 @@ namespace DataAccessLib.DataAccess
 					cmd.Parameters.AddWithValue("@fromDate", year.FromDate);
 					cmd.Parameters.AddWithValue("@toDate", year.ToDate);
 					cmd.Parameters.AddWithValue("@isCurrentYear", year.IsCurrentYear);
-					cmd.Parameters.AddWithValue("@branchId", year.BranchID);
 					cmd.Parameters.AddWithValue("@createdBy", year.CreatedBy);
 					cmd.Parameters.AddWithValue("@createdOn", year.CreatedOn);
 					con.Open();
@@ -64,7 +63,6 @@ namespace DataAccessLib.DataAccess
 					cmd.Parameters.AddWithValue("@fromDate", year.FromDate);
 					cmd.Parameters.AddWithValue("@toDate", year.ToDate);
 					cmd.Parameters.AddWithValue("@isCurrentYear", year.IsCurrentYear);
-					cmd.Parameters.AddWithValue("@branchId", year.BranchID);
 					cmd.Parameters.AddWithValue("@updatedOn", year.CreatedOn);
 					con.Open();
 					cmd.ExecuteNonQuery();
@@ -95,15 +93,38 @@ namespace DataAccessLib.DataAccess
 			}
 		}
 
-		public List<AcademicYear> GetAcademicYears(Guid branchId,bool currentYearOnly)
+		public List<AcademicYear> SelectAcademicYearsByUserID(Guid userId)
 		{
 			var years=new List<AcademicYear>();
 			try
 			{
 				using(var con = DAHelper.SqlConnection)
-				using (var cmd = DAHelper.Command("SelectAcademicYears", con))
+				using (var cmd = DAHelper.Command("SelectAcademicYearsByUserID", con))
 				{
-					cmd.Parameters.AddWithValue("@currentYearOnly", currentYearOnly);
+					cmd.Parameters.AddWithValue("@userId", userId);
+					con.Open();
+					var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						years.Add(CreateFromReader(dr));
+					}
+				}
+				return years;
+			}
+			catch
+			{
+				throw;
+			}
+		}
+
+		public List<AcademicYear> SelectAcademicYearsByBranchID(Guid branchId)
+		{
+			var years = new List<AcademicYear>();
+			try
+			{
+				using (var con = DAHelper.SqlConnection)
+				using (var cmd = DAHelper.Command("SelectAcademicYearsByBranchID", con))
+				{
 					cmd.Parameters.AddWithValue("@branchId", branchId);
 					con.Open();
 					var dr = cmd.ExecuteReader();

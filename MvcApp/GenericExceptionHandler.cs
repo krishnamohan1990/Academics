@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Http.Filters;
 
-public class Class1
+namespace MvcApp
 {
-	public Class1()
+	public class GenericExceptionHandler:ExceptionFilterAttribute
 	{
+
 	}
 }

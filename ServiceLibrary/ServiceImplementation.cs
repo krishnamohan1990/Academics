@@ -53,13 +53,19 @@ namespace ServiceLibrary
 
 		public AcademicYear GetCurrentYear(Guid branchId)
 		{
-			var years = AcademicYearDA.Instance.GetAcademicYears(branchId, true);
-			return years.FirstOrDefault();
+			var years = AcademicYearDA.Instance.SelectAcademicYearsByBranchID(branchId);
+			return years.FirstOrDefault(y=>y.IsCurrentYear);
 		}
 
-		public List<AcademicYear> GetAllAcademicYears(Guid branchId)
+		public List<AcademicYear> GetAcademicYearsByBranch(Guid branchId)
 		{
-			var years = AcademicYearDA.Instance.GetAcademicYears(branchId, false);
+			var years = AcademicYearDA.Instance.SelectAcademicYearsByBranchID(branchId);
+			return years;
+		}
+
+		public List<AcademicYear> GetAcademicYearsByUser(Guid userId)
+		{
+			var years = AcademicYearDA.Instance.SelectAcademicYearsByUserID(userId);
 			return years;
 		}
 
@@ -85,9 +91,34 @@ namespace ServiceLibrary
 
 		public void AddProgram(Program program)
 		{
-			ProgramDA.Instance.InsertORUpdate(program);
+			try
+			{
+				ProgramDA.Instance.Insert(program);
+			}
+			catch (Exception ex)
+			{
+				throw new FaultException<Error>(new Error
+				{
+					Message = ex.Message
+				},new FaultReason(ex.StackTrace));
+			}
 		}
 
+		public void UpdateProgram(Program program)
+		{
+			try
+			{
+				ProgramDA.Instance.Update(program);
+			}
+			catch (Exception ex)
+			{
+				throw new FaultException<Error>(new Error
+				{
+					Message = ex.Message,
+					Reason = ex.StackTrace
+				});
+			}
+		}
 		public void DeleteProgram(Program program)
 		{
 			ProgramDA.Instance.Delete(program);
@@ -106,6 +137,16 @@ namespace ServiceLibrary
 		public IEnumerable<Program> GetProgramsByYear(Guid yearId)
 		{
 			return ProgramDA.Instance.SelectByYearID(yearId);
+		}
+
+		public IEnumerable<Program> GetProgramsByBranchAndYear(Guid branchId, Guid yearId)
+		{
+			return ProgramDA.Instance.SelectByBranchAndYearID(branchId, yearId);
+		}
+
+		public IEnumerable<Program> GetProgramsByAdminID(Guid adminId)
+		{
+			return ProgramDA.Instance.SelectByAdminID(adminId);
 		}
 	}
 }
