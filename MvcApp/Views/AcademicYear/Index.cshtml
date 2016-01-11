@@ -1,4 +1,5 @@
 ﻿@using System.Collections.Specialized
+@using System.Web.UI.WebControls
 @using MvcApp.Components
 @using MvcApp.Models
 @model MvcApp.Models.AcademicYear
@@ -9,53 +10,57 @@
 
 @section scripts
 {
-    <script src="~/Scripts/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        var table1="global";
-        $(document).ready(function() {
-	        table1 = $("table.dataTable").initializeDataTable();
-            
-           $(".edit").on("click", function (e) {
-               var row = $(this).closest("tr");
-               var id = $(this).attr("yearId");
-               var name = row[0].children[0].innerHTML;
-               var fromDate = row[0].children[1].innerHTML;
-               var toDate = row[0].children[2].innerHTML;
-               var action = row[0].children[3].childElementCount;
-               $("input[name=Name]").val(name).attr('readonly', 'true');
-               $("input[name=FromDate]").val(fromDate);
-               $("input[name=ToDate]").val(toDate);
-               $("input[name=ID]").val(id);
-               if (action == 1) {
-                   $("input[name=IsCurrentYear]").prop("checked", true);
-               } else {
-                   $("input[name=IsCurrentYear]").prop("checked", false);
-               }
-               $("input[id=submit]").val("Update");
-               e.preventDefault();
-               return false;
-           });
-       
-	        $("input[id=cancel]").click(function() {
-			   $("input[type=text],input[type=datetime]").each(function (index, item) { $(item).val("").removeAttr("readonly"); });
-               $("input[name=IsCurrentYear]").prop("checked", false);
-               $("input[id=submit]").val("Add");
-               return false;
-           });
-        });
-        
-        function onDeleteSuccess() {
-            table1.fnDestroy();
-            $("table.no-footer").parent("div").load("/AcademicYear/ShowYears");
-	        table1 = $("table.dataTable").initializeDataTable();
-            alert("Deleted successfully");
-        }
-        function onFail() {
-            alert("Technical Error occured");
-        }
-    </script>
+	@Scripts.Render("~/scripts/jquerydatatable")
+	@Styles.Render("~/style/jquerydatatable")
+	<script type="text/javascript">
+		var table1 = "global";
+		$(document).ready(function() {
+			table1 = $("table.dataTable").initializeDataTable();
+
+			$(".edit").on("click", function(e) {
+				var row = $(this).closest("tr");
+				var id = $(this).attr("yearId");
+				var name = row[0].children[0].innerHTML;
+				var fromDate = row[0].children[1].innerHTML;
+				var toDate = row[0].children[2].innerHTML;
+				var action = row[0].children[3].childElementCount;
+				$("input[name=Name]").val(name).attr('readonly', 'true');
+				$("input[name=FromDate]").val(fromDate);
+				$("input[name=ToDate]").val(toDate);
+				$("input[name=ID]").val(id);
+				if (action == 1) {
+					$("input[name=IsCurrentYear]").prop("checked", true);
+				} else {
+					$("input[name=IsCurrentYear]").prop("checked", false);
+				}
+				$("input[id=submit]").val("Update");
+				e.preventDefault();
+				return false;
+			});
+
+			$("input[id=cancel]").click(function() {
+				$("input[type=text], input[type=datetime]").each(function(index, item) { $(item).val("").removeAttr("readonly"); });
+				$("input[name=IsCurrentYear]").prop("checked", false);
+				$("input[id=submit]").val("Add");
+				return false;
+			});
+		});
+
+		function onDeleteSuccess() {
+			table1.fnDestroy();
+			$("table.no-footer").parent("div").load("/AcademicYear/ShowYears");
+			table1 = $("table.dataTable").initializeDataTable();
+			alert("Deleted successfully");
+		}
+
+		function onFail() {
+			alert("Technical Error occured");
+		}
+	</script>
 }
-    <div class="column2">
+
+<div class="row">
+<div class="col-md-6">
         @using (Html.BeginForm("Create", "AcademicYear",FormMethod.Post,new{id="yearForm"}))
         {
             @Html.AntiForgeryToken()
@@ -97,7 +102,8 @@
             <input type="submit" value="Cancel" id="cancel"/>
         } 
     </div>
-    <div class="column2">
+
+<div class="col-md-6">
         @{ Html.RenderAction("ShowYears"); }
     </div>
- 
+ </div>

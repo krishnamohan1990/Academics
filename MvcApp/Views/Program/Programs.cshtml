@@ -5,12 +5,42 @@
 	ViewBag.Title = "Program";
 }
 
-<h2>Program</h2>
-<div class="column2">
-	<div class="table-responsive">
-		@if (Model.Count > 0)
+
+<br />
+@section scripts
+{
+	@Styles.Render("~/style/bootstrapdatatable")
+	@Scripts.Render("~/scripts/bootstrapdatatable")
+	<style>
+		.dataTables_wrapper {
+			border: 1px solid #e5e5e5;
+		}
+		a {
+			text-decoration: none;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#bootdataTable").bootstrapDataTable();
+			$("input[id=cancel]").click(function() {
+				$("input[type=text],textarea").val("");
+			});
+		});
+	</script>
+}
+<div class="row">
+	<div class="col-md-6"><h2 style="text-align: center">Programs</h2></div>
+</div>
+<div class="row">
+	<div class="col-md-6" style="margin: 10px 0px">
+		@Html.ActionLink("Add New Program", "Add", "Program",new{}, new { @class = "btn btn-default" })
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		@if (Model.Count() > 0)
 		{
-			<table class="table-bordered">
+			<table id="bootdataTable" class="table table-bordered">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -19,19 +49,19 @@
 					</tr>
 				</thead>
 				<tbody>
-				
+
 					@foreach (Program program in Model)
 					{
 						<tr>
 							<td>@program.Name</td>
 							<td>@program.Description</td>
 							<td>
-								<span class="btn btn-default">Edit</span>
+								@Html.ActionLink("Edit","Add","Program",new{@id=program.ID},new{@class="btn btn-default"})&nbsp;
 								<span class="btn btn-default">Delete</span>
 							</td>
 						</tr>
 					}
-				
+
 				</tbody>
 
 			</table>

@@ -12,8 +12,8 @@ namespace MvcApp
 			    "~/Scripts/jquery-1.11.2.js",
 			    "~/Scripts/jquery-migrate-1.2.1.min.js",
 			    "~/Scripts/jquery.unobtrusive-ajax.js",
-			    "~/Scripts/commonscript.js"));
-		    bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include("~/Scripts/jquery-ui.js"));
+			    "~/Scripts/commonscript.js",
+				"~/Scripts/jquery-ui.js"));
 
 		    bundles.Add(new ScriptBundle("~/bundles/jqueryvalidate").Include(
 			    "~/Scripts/jquery.unobtrusive*",
@@ -24,25 +24,44 @@ namespace MvcApp
 		    bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 			    "~/Scripts/modernizr-*"));
 
-		    bundles.Add(new StyleBundle("~/Styles/bootstrap").Include(
-				"~/Content/Stylesheets/bootstrap/bootstrap.css",
-				"~/Content/Stylesheets/bootstrap/bootstrap-dialog.css",
-				 "~/Styles/Site.css",
-				"~/Styles/InputControls.css"
-				));
-		    bundles.Add(new StyleBundle("~/Styles/menu").Include("~/Styles/Menu/menu.css"));
+			//bundles.Add(new StyleBundle("~/Styles/bootstrap").Include(
+			//	"~/Content/Stylesheets/bootstrap/bootstrap.css",
+			//	"~/Content/Stylesheets/bootstrap/bootstrap-dialog.css",
+			//	 "~/Styles/Site.css",
+			//	"~/Styles/InputControls.css"
+			//	));
+			bundles.Add(new StyleBundle("~/Styles/bootstrap").IncludeDirectory(@"~/Content/bootstrap/css", "*.css").Include("~/Styles/Site.css", "~/Styles/InputControls.css"));
+
+			bundles.Add(new StyleBundle("~/Styles/menu").Include("~/Styles/Menu/menu.css"));
 		    bundles.Add(new StyleBundle("~/Styles/Layout").Include("~/Styles/MainLayout.css"));
 		    bundles.Add(new StyleBundle("~/Styles/TableStyles").Include("~/Styles/TableStyle.css"));
 		    bundles.Add(new StyleBundle("~/Styles/datepicker").Include(
 			    "~/Styles/themes/base/jquery.ui.css",
-			    // "~/Styles/themes/base/jquery-ui.css",
-			    // "~/Styles/themes/base/jquery-ui.theme.css",
 			    "~/Styles/themes/base/jquery.ui.theme.css",
 			    "~/Styles/themes/base/jquery-ui.structure.css",
-			    "~/Styles/themes/base/jquery.ui.datepicker.css",
-			    "~/Styles/themes/base/dataTables.jqueryui.css"
+			    "~/Styles/themes/base/jquery.ui.datepicker.css"
 			    ));
+			//jquery data table
+			bundles.Add(new ScriptBundle("~/scripts/jquerydatatable").Include("~/Scripts/jquery.dataTables.js"));
+			bundles.Add(new StyleBundle("~/style/jquerydatatable").Include("~/Styles/themes/base/dataTables.jqueryui.css"));
 
+			bundles.Add(new ScriptBundle("~/scripts/bootstrap").IncludeDirectory("~/Content/bootstrap/js", "*.js").Include(
+				"~/Scripts/bootstrap-dialog.js",
+				"~/Scripts/bootstrap-typeahead.js"
+				));
+			//bootstarp data table
+		    bundles.Add(new ScriptBundle("~/scripts/bootstrapdatatable").Include(
+				//"~/Scripts/jquery-1.11.3.js",
+			    "~/Scripts/jquery.dataTables.js",
+			    "~/Scripts/dataTables.bootstrap.js"));
+
+		    bundles.Add(new StyleBundle("~/style/bootstrapdatatable").Include(
+				"~/Content/bootstrap/dataTables.bootstrap.css",
+				"~/Styles/themes/base/dataTables.jqueryui.css"
+				));
+
+
+			//bellow bundles are not using presently
 		    bundles.Add(new StyleBundle("~/Styles/jquery").Include(
 			    "~/Styles/themes/base/jquery-ui.css",
 			    "~/Styles/themes/base/jquery-ui.theme.css",
@@ -60,21 +79,23 @@ namespace MvcApp
 			    "~/Styles/themes/base/jquery.ui.progressbar.css",
 			    "~/Styles/themes/base/Style.css"));
 
-		    bundles.Add(new ScriptBundle("~/scripts/bootstrap").Include(
-			    "~/Scripts/bootstrap-alert.js",
-			    "~/Scripts/bootstrap-button.js",
-			    "~/Scripts/bootstrap-carousel.js",
-			    "~/Scripts/bootstrap-collapse.js",
-			    "~/Scripts/bootstrap-dropdown.js",
-			    "~/Scripts/bootstrap-modal.js",
-			    "~/Scripts/bootstrap-dialog.js",
-			    "~/Scripts/bootstrap-scrollspy.js",
-			    "~/Scripts/bootstrap-tab.js",
-			    "~/Scripts/bootstrap-tooltip.js",
-			    //"~/Scripts/bootstrap-transition.js",
-			    "~/Scripts/bootstrap-typeahead.js"
-			    //"~/Scripts/bootstrapPager.js"));
-			    ));
+			
+
+			//bundles.Add(new ScriptBundle("~/scripts/bootstrap").Include(
+			//	"~/Scripts/bootstrap-alert.js",
+			//	"~/Scripts/bootstrap-button.js",
+			//	"~/Scripts/bootstrap-carousel.js",
+			//	"~/Scripts/bootstrap-collapse.js",
+			//	"~/Scripts/bootstrap-dropdown.js",
+			//	"~/Scripts/bootstrap-modal.js",
+			//	"~/Scripts/bootstrap-dialog.js",
+			//	"~/Scripts/bootstrap-scrollspy.js",
+			//	"~/Scripts/bootstrap-tab.js",
+			//	"~/Scripts/bootstrap-tooltip.js",
+			//	//"~/Scripts/bootstrap-transition.js",
+			//	"~/Scripts/bootstrap-typeahead.js"
+			//	//"~/Scripts/bootstrapPager.js"));
+			//	));
 	    }
     }
 }

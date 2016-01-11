@@ -1,0 +1,48 @@
+﻿@model MvcApp.Models.Program
+@{
+    ViewBag.Title = "Program";
+}
+@section scripts{
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("input[id=cancel]").click(function() {
+				$("input[type=text],input[type=hidden],textarea").val("");
+				$("input[type=submit").val("Add");
+			});
+		});
+	</script>
+}
+<h2>Add Program</h2>
+<br/>
+<div class="row">
+	<div class="col-md-6">
+		@using (Html.BeginForm("Create", "Program", FormMethod.Post))
+		{
+			@Html.AntiForgeryToken()
+			@Html.ValidationSummary()
+
+
+			<div>
+				@Html.HiddenFor(m => m.ID)
+				<div>
+					@Html.LabelFor(m => m.Name)
+				</div>
+				<div>
+					@Html.TextBoxFor(m => m.Name)
+				</div>
+			</div>
+			<div>
+				<div>
+					@Html.LabelFor(m => m.Description)
+				</div>
+				<div>
+					@Html.TextAreaFor(m => m.Description)
+				</div>
+			</div>
+			<br />
+			<input type="submit" value=@ViewBag.buttonText id="addProgram" />
+			<input id="cancel" type="button" value="Cancel" />
+		}
+	</div>
+</div>
+<div style="padding: 10px">@Html.ActionLink("Back","Index")</div>

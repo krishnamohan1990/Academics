@@ -22,9 +22,17 @@ namespace MvcApp.Controllers
         //
         // GET: /Program/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Add(Guid? id)
         {
-            return View();
+	        if (!id.HasValue)
+	        {
+		        ViewBag.buttonText = "Add";
+		        return View("Program");
+	        }
+	        ViewBag.buttonText = "Update";
+	        var program =
+		        YearProgramHelper.GetProgramsByUserID(UserData.GetInstance.AdminID).FirstOrDefault(p => p.ID == id.Value);
+			return View("Program", program);
         }
 
         //
@@ -45,18 +53,22 @@ namespace MvcApp.Controllers
 		    {
 			    if (ModelState.IsValid)
 			    {
-					if(program.ID!=null)
-						YearProgramHelper.UpdateProgram(program);
-				    program.ID = CommonHelper.NewGuid;
-				    YearProgramHelper.AddProgram(program);
+				    if (program.ID.HasValue)
+					    YearProgramHelper.UpdateProgram(program);
+				    else
+				    {
+					    program.ID = CommonHelper.NewGuid;
+					    YearProgramHelper.AddProgram(program);
+				    }
 			    }
 			    else
-				    return View("Index", program);
-			    return View("Index");
+				    return View("Program", program);
+				return View("Programs", YearProgramHelper.GetProgramsByUserID(UserData.GetInstance.AdminID));
 		    }
 		    catch
 		    {
-			    return View();
+				ModelState.AddModelError("","Technical Error Occured");
+			    return View("Program",program);
 		    }
 	    }
 

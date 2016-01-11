@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Web;
+using System.Web.Mvc.Html;
 using System.Web.Services.Description;
 using Microsoft.Ajax.Utilities;
 using MvcApp.Components;
@@ -112,6 +113,10 @@ namespace MvcApp.Helpers
 				{
 					client.AddProgram(p);
 				}
+				var programs = SessionManager.Get<List<Program>>(SessionKeyID.Programs);
+				SessionManager.Remove(SessionKeyID.Programs);
+				programs.Insert(0,program);
+				SessionManager.Add(SessionKeyID.Programs, programs);
 			}
 			catch (FaultException<Error> ex)
 			{
@@ -127,12 +132,18 @@ namespace MvcApp.Helpers
 				ProgramName = program.Name,
 				Description = program.Description,
 				CreatedBy = UserData.GetInstance.AdminID,
-				CreatedOn = CommonHelper.CurrentDate
+				CreatedOn = CommonHelper.CurrentDate,
+				UpdatedOn = CommonHelper.CurrentDate
 			};
 			using (var client = new ServiceClient())
 			{
 				client.UpdateProgram(p);
 			}
+			var programs = SessionManager.Get<List<Program>>(SessionKeyID.Programs);
+			SessionManager.Remove(SessionKeyID.Programs);
+			programs = programs.Where(pr => pr.ID != program.ID).Select(i=>i).ToList();
+			programs.Insert(0,program);
+			SessionManager.Add(SessionKeyID.Programs, programs);
 		}
 
 		public static IEnumerable<Program> GetProgramsByUserID(Guid userId)
@@ -149,10 +160,12 @@ namespace MvcApp.Helpers
 					{
 						Name = p.ProgramName,
 						Description = p.Description,
-						ID = p.ProgramID
+						ID = p.ProgramID,
+						CreatedOn = p.CreatedOn
 					});
 				});
 			}
+			SessionManager.Add(SessionKeyID.Programs,programs);
 			return programs;
 		}
 

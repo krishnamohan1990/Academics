@@ -32,7 +32,7 @@ namespace DataAccessLib.DataAccess
 					cmd.Parameters.AddWithValue("@createdOn", program.CreatedOn);
 					cmd.Parameters.AddWithValue("@createdBy", program.CreatedBy);
 					con.Open();
-					success = cmd.ExecuteNonQuery()>0;
+					success = cmd.ExecuteNonQuery()<0;
 				}
 				if(!success)
 					throw new Exception("Progam not added sucessfully");
@@ -48,7 +48,7 @@ namespace DataAccessLib.DataAccess
 					cmd.Parameters.AddWithValue("@programId", program.ProgramID);
 					cmd.Parameters.AddWithValue("@programName", program.ProgramName);
 					cmd.Parameters.AddWithValue("@description", program.Description);
-					cmd.Parameters.AddWithValue("@updatedOn", program.CreatedOn);
+					cmd.Parameters.AddWithValue("@updatedOn", program.UpdatedOn);
 					con.Open();
 					cmd.ExecuteNonQuery();
 				}
@@ -208,7 +208,7 @@ namespace DataAccessLib.DataAccess
 				Description = dr["Description"].ToString(),
 				CreatedBy = new Guid(dr["CreatedBy"].ToString()),
 				CreatedOn = Convert.ToDateTime(dr["CreatedOn"]),
-				UpdatedOn = dr["UpdatedOn"] == null ? DateTime.MaxValue: Convert.ToDateTime(dr["UpdatedOn"])
+				UpdatedOn = dr["UpdatedOn"] == DBNull.Value ? DateTime.MaxValue : Convert.ToDateTime(dr["UpdatedOn"])
 			};
 		}
 	}

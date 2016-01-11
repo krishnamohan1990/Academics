@@ -52,5 +52,6 @@ namespace MvcApp.Models
 		public string Name { get; set; }
 		[StringLength(100, MinimumLength = 0, ErrorMessage = "Description should be 0 to 100 characters length")]
 		public string Description { get; set; }
+		public DateTime CreatedOn { get; set; }
 	}
 }

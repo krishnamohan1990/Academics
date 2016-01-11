@@ -221,16 +221,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Stylesheets\bootstrap\bootstrap-dialog.css" />
-    <Content Include="Content\Stylesheets\bootstrap\bootstrap.css">
-      <DependentUpon>bootstrap.less</DependentUpon>
-    </Content>
-    <Content Include="Content\Stylesheets\bootstrap\bootstrap.min.css">
-      <DependentUpon>bootstrap.less</DependentUpon>
-    </Content>
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\dataTables.bootstrap.min.css" />
+    <Content Include="Content\bootstrap\dataTables.bootstrap.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Scripts\bootstrap-dialog.js" />
     <Content Include="Scripts\commonscript.js" />
-    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap.js" />
+    <Content Include="Scripts\jquery-1.11.3.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Styles\TableStyle.css" />
     <Content Include="Styles\themes\base\dataTables.jqueryui.css" />
     <Content Include="Styles\themes\base\images\datepicker\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -249,41 +254,6 @@
     <Content Include="Styles\themes\base\images\datepicker\ui-icons_ffffff_256x240.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
-    <Content Include="Content\Stylesheets\bootstrap\wells.less" />
-    <Content Include="Content\Stylesheets\bootstrap\variables.less" />
-    <Content Include="Content\Stylesheets\bootstrap\utilities.less" />
-    <Content Include="Content\Stylesheets\bootstrap\type.less" />
-    <Content Include="Content\Stylesheets\bootstrap\tooltip.less" />
-    <Content Include="Content\Stylesheets\bootstrap\thumbnails.less" />
-    <Content Include="Content\Stylesheets\bootstrap\tables.less" />
-    <Content Include="Content\Stylesheets\bootstrap\sprites.less" />
-    <Content Include="Content\Stylesheets\bootstrap\scaffolding.less" />
-    <Content Include="Content\Stylesheets\bootstrap\responsive.less" />
-    <Content Include="Content\Stylesheets\bootstrap\reset.less" />
-    <Content Include="Content\Stylesheets\bootstrap\progress-bars.less" />
-    <Content Include="Content\Stylesheets\bootstrap\popovers.less" />
-    <Content Include="Content\Stylesheets\bootstrap\pagination.less" />
-    <Content Include="Content\Stylesheets\bootstrap\pager.less" />
-    <Content Include="Content\Stylesheets\bootstrap\navs.less" />
-    <Content Include="Content\Stylesheets\bootstrap\navbar.less" />
-    <Content Include="Content\Stylesheets\bootstrap\modals.less" />
-    <Content Include="Content\Stylesheets\bootstrap\mixins.less" />
-    <Content Include="Content\Stylesheets\bootstrap\layouts.less" />
-    <Content Include="Content\Stylesheets\bootstrap\labels.less" />
-    <Content Include="Content\Stylesheets\bootstrap\hero-unit.less" />
-    <Content Include="Content\Stylesheets\bootstrap\grid.less" />
-    <Content Include="Content\Stylesheets\bootstrap\forms.less" />
-    <Content Include="Content\Stylesheets\bootstrap\dropdowns.less" />
-    <Content Include="Content\Stylesheets\bootstrap\component-animations.less" />
-    <Content Include="Content\Stylesheets\bootstrap\code.less" />
-    <Content Include="Content\Stylesheets\bootstrap\close.less" />
-    <Content Include="Content\Stylesheets\bootstrap\carousel.less" />
-    <Content Include="Content\Stylesheets\bootstrap\buttons.less" />
-    <Content Include="Content\Stylesheets\bootstrap\button-groups.less" />
-    <Content Include="Content\Stylesheets\bootstrap\breadcrumbs.less" />
-    <Content Include="Content\Stylesheets\bootstrap\bootstrap.less" />
-    <Content Include="Content\Stylesheets\bootstrap\alerts.less" />
-    <Content Include="Content\Stylesheets\bootstrap\accordion.less" />
     <Content Include="Scripts\bootstrap-alert.js" />
     <Content Include="Scripts\bootstrap-button.js" />
     <Content Include="Scripts\bootstrap-carousel.js" />
@@ -477,11 +447,12 @@
     <Content Include="Views\Branch\Branches.cshtml" />
     <Content Include="Views\Branch\Branch.cshtml" />
     <Content Include="Views\Program\Programs.cshtml" />
-    <Content Include="Views\Program\Index.cshtml" />
+    <Content Include="Views\Program\Program.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Stylesheets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

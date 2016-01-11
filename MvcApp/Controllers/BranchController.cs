@@ -29,18 +29,16 @@ namespace MvcApp.Controllers
         //
         // GET: /Branch/Create
 
-		public ActionResult Add(Guid? id)
-		{
-			if (!id.HasValue)
-				return PartialView("Branch");
-			else
-			{
-				var branch = BranchHelper.GetAllBranches.Where(b => b.ID == id).Select(i => i).FirstOrDefault();
-				return PartialView("Branch", branch);
-			}
-		}
+	    public ActionResult Add(Guid? id)
+	    {
+		    if (!id.HasValue)
+			    return PartialView("Branch");
 
-        //
+		    var branch = BranchHelper.GetAllBranches.Where(b => b.ID == id).Select(i => i).FirstOrDefault();
+		    return PartialView("Branch", branch);
+	    }
+
+	    //
         // POST: /Branch/Create
 
         [HttpPost]
